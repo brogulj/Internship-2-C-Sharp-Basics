@@ -27,7 +27,15 @@ namespace playlistDump
             }
             return;
         }
-
+        public static bool DaNe(void){
+              
+                    System.Console.WriteLine("Jeste li sigurni da želite odabrati opciju broj "+odabir);
+                    System.Console.WriteLine("pritisnite d za da ili n za ne");
+                    dane=Console.ReadLine();
+                    if(dane=="n")
+                    return false;
+                    return true;
+        }
         public static bool Menu(Dictionary<int, string> dict){
             Boolean palivozi= true;                                                                //palivozi isto bool, koristimo ga da odredimo nastavi poslije zavrsene funkcije
             System.Console.WriteLine(" Odaberite akciju:");
@@ -46,11 +54,18 @@ namespace playlistDump
             var tempInt=0;
             var tempInt2=0;
             var tempStr="";
+            var dane=new Boolean();
             switch(odabir){
                 case 0:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     palivozi=false;
                     break;
                 case 1:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     System.Console.WriteLine("Playlista sadrzi slijedece pjesme");
                     foreach(var pair in dict)
                     {
@@ -58,11 +73,17 @@ namespace playlistDump
                     }
                     break;
                 case 2:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     System.Console.WriteLine("Unesite redni broj pjesme koje zelite da se ispise: ");
                     tempInt = int.Parse(Console.ReadLine());
                     System.Console.WriteLine("Pjesma pod rednim brojem "+tempInt+" je "+dict[tempInt]+".");
                     break;
                 case 3:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     System.Console.WriteLine("unesite ime pjesme ciji redni broj zelite da se ispise");
                     tempStr = Console.ReadLine();
                     foreach(var pair in dict){                                                  //foreach petlja koja trazi indeks po imenu pjesme
@@ -74,6 +95,9 @@ namespace playlistDump
                     System.Console.WriteLine("Redni broj pjesme "+ tempStr + " je "+ tempInt);
                     break;
                 case 4:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     System.Console.WriteLine("Unesite ime pjesme koju želite dodati na playlistu");
                     tempStr=Console.ReadLine();
                     
@@ -86,6 +110,9 @@ namespace playlistDump
                     dict[dict.Count+1]=tempStr;
                     break;
                 case 5:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     System.Console.WriteLine("Unesite redni broj pjesme koju želite obrisati: "); //umisto da sve pisme pomicen za jedan samo san uzea zadnju i pribacia je na misto ove i onda obrisa zadnju :)
                     tempInt=int.Parse(Console.ReadLine());
                     dict[tempInt]=dict[dict.Count];
@@ -93,6 +120,9 @@ namespace playlistDump
                     break;
                 
                 case 6:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     System.Console.WriteLine("Unesite ime pjesme koju zelite obrisati: ");
                     tempStr=Console.ReadLine();
                     foreach(var pair in dict){
@@ -105,10 +135,16 @@ namespace playlistDump
                     dict.Remove(dict.Count);
                     break;
                 case 7:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     System.Console.WriteLine("Cijela lista je obrisana");
                     dict.Clear();
                     break;
                 case 8:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     System.Console.WriteLine("Unesite redni broj pjesme kojoj zelite urediti ime: ");
                     tempInt=int.Parse(Console.ReadLine());
                     System.Console.WriteLine("Unesite novo ime pjesme za koju žeite da bude na rednom mjestu "+ tempInt);
@@ -122,6 +158,9 @@ namespace playlistDump
                     dict[tempInt]=tempStr;
                     break;
                 case 9:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     System.Console.WriteLine("Unesite ime pjesme kojoj zelite promjeniti redni broj");
                     tempStr=Console.ReadLine();
                     foreach(var pair in dict){
@@ -136,6 +175,9 @@ namespace playlistDump
                     dict[tempInt2]=tempStr;
                     break;
                 case 10:
+                    dane=DaNe();
+                    if(!dane)
+                    break
                     var random=new Random();
                     for(int i=1;i<=dict.Count;i++){
                         tempInt=random.Next(1,dict.Count+1);
