@@ -128,7 +128,9 @@ namespace playlistDump
                         System.Console.WriteLine("Unijeli ste redni broj koji nije na listi");
                         break;
                     }
-                    dict[tempInt]=dict[dict.Count];
+                    for(var i=tempInt;i<dict.Count;i++){
+                        dict[i]=dict[i+1];
+                    }
                     dict.Remove(dict.Count);
                     System.Console.WriteLine("Pjesma je uspjesno obrisana sa playiste");
                     break;
@@ -149,7 +151,9 @@ namespace playlistDump
                         System.Console.WriteLine("Unijeli ste ime pjesme koja se ne nalazi na listi");
                         break;
                     }
-                    dict[tempInt]=dict[dict.Count];
+                    for(var i=tempInt;i<dict.Count;i++){
+                        dict[i]=dict[i+1];
+                    }
                     dict.Remove(dict.Count);
                     System.Console.WriteLine("Pjesma je uspjesno obrisana sa playiste");
                     break;
@@ -202,7 +206,7 @@ namespace playlistDump
                     tempInt2=int.Parse(Console.ReadLine());
                     dict[tempInt]=dict[tempInt2];
                     dict[tempInt2]=tempStr;
-                    System.Console.WriteLine("Uspejšno uređen redni broj");
+                    System.Console.WriteLine("Uspješno uređen redni broj");
                     break;
                 case 10:                                                                    
                     dane=DaNe(odabir);
@@ -220,7 +224,7 @@ namespace playlistDump
                     break;
             }
             return palivozi;
-
+            
 
         }
         
